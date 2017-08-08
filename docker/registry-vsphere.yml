@@ -19,6 +19,7 @@ services:
         - com.df.distribute=true
         - com.df.port=5000
         - com.df.serviceDomain=${DOMAIN}
+        - com.df.timeoutServer=600
 
 volumes:
   main:
