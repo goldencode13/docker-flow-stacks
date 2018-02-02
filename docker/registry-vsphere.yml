@@ -4,12 +4,14 @@ services:
 
   main:
     image: registry
-    ports:
-      - "5000:5000"
+    #ports:
+    #  - "5000:5000"
     networks:
       - proxy
     volumes:
       - main:/var/lib/registry
+    environment:
+      - REGISTRY_STORAGE_DELETE_ENABLED=true
     deploy:
       resources:
         reservations:
@@ -24,6 +26,8 @@ services:
 volumes:
   main:
     driver: vsphere
+    driver_opts:
+      size: 20gb
 
 networks:
   proxy:
